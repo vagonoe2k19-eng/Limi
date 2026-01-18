@@ -227,14 +227,14 @@ const SettingsView = () => {
                         <label className="block text-sm font-medium text-white/80 mb-2">
                             Lejárati figyelmeztetés kezdete (nap)
                         </label>
-                        <div className="flex gap-4 items-center">
+                        <div className="flex flex-wrap gap-4 items-center">
                             <input
                                 type="number"
                                 min="1"
                                 max="30"
                                 value={expiryDays}
                                 onChange={(e) => setExpiryDays(e.target.value)}
-                                className="input-primary w-32"
+                                className="input-primary w-24 sm:w-32"
                             />
                             <span className="text-white/60 text-sm">
                                 nappal a lejárati dátum előtt
@@ -272,7 +272,7 @@ const SettingsView = () => {
                 </div>
 
                 <div className="space-y-4">
-                    <div className="p-4 bg-white/5 rounded-xl flex items-center justify-between">
+                    <div className="p-4 bg-white/5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
                             <h4 className="text-white font-medium">Biztonsági mentés</h4>
                             <p className="text-white/60 text-sm">
@@ -283,12 +283,13 @@ const SettingsView = () => {
                             onClick={handleExportData}
                             variant="secondary"
                             icon={Download}
+                            className="w-full sm:w-auto justify-center"
                         >
                             Letöltés
                         </Button>
                     </div>
 
-                    <div className="p-4 bg-lime/10 border border-lime/20 rounded-xl flex items-center justify-between">
+                    <div className="p-4 bg-lime/10 border border-lime/20 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
                             <h4 className="text-white font-medium">Kategóriák és Helyek Bővítése</h4>
                             <p className="text-white/60 text-sm">
@@ -302,14 +303,14 @@ const SettingsView = () => {
                                     window.location.reload()
                                 }
                             }}
-                            className="bg-lime/20 text-lime hover:bg-lime/30 border-lime/50"
+                            className="bg-lime/20 text-lime hover:bg-lime/30 border-lime/50 w-full sm:w-auto justify-center"
                             icon={Database}
                         >
                             Frissítés
                         </Button>
                     </div>
 
-                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center justify-between">
+                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
                             <h4 className="text-white font-medium">Kijelentkezés</h4>
                             <p className="text-white/60 text-sm">
@@ -318,7 +319,7 @@ const SettingsView = () => {
                         </div>
                         <Button
                             onClick={signOut}
-                            className="bg-red-500/20 text-red-400 hover:bg-red-500/30 border-red-500/50"
+                            className="bg-red-500/20 text-red-400 hover:bg-red-500/30 border-red-500/50 w-full sm:w-auto justify-center"
                             icon={LogOut}
                         >
                             Kijelentkezés

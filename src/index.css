@@ -33,10 +33,14 @@
     background-attachment: fixed;
     overflow-x: hidden;
     width: 100%;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   html {
     scroll-behavior: smooth;
+    overscroll-behavior: none;
+    touch-action: manipulation;
   }
 }
 
