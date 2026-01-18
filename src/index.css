@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Limi Green Luxury Colors */
+    --color-forest: #0a1612;
+    --color-forest-light: #0f1f1a;
+    --color-lime: #a3e635;
+    --color-lime-light: #bef264;
+    --color-lime-dark: #84cc16;
+    --color-emerald: #10b981;
+    --color-emerald-light: #34d399;
+    --color-emerald-dark: #059669;
+    --color-gold: #d4af37;
+    --color-gold-light: #f4d03f;
+
+    /* Glass effect */
+    --glass-bg: rgba(163, 230, 53, 0.05);
+    --glass-border: rgba(163, 230, 53, 0.1);
+  }
+
+  * {
+    @apply border-lime/10;
+  }
+
+  body {
+    @apply bg-forest text-white font-sans antialiased;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(163, 230, 53, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+
+  .glass-card-hover:hover {
+    @apply bg-white/10 border-lime/30 scale-[1.02];
+    box-shadow:
+      0 12px 48px 0 rgba(163, 230, 53, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Premium Button */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-lime to-emerald text-forest font-semibold rounded-xl;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-lime/50;
+    @apply active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-xl;
+    @apply transition-all duration-300 hover:bg-white/20 hover:border-lime/50;
+    @apply active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-lime hover:bg-lime/10 rounded-lg transition-all duration-200;
+  }
+
+  /* Premium Input */
+  .input-primary {
+    @apply w-full px-4 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+    @apply text-white placeholder-white/40 outline-none;
+    @apply transition-all duration-300;
+    @apply focus:border-lime/50 focus:bg-white/10 focus:ring-2 focus:ring-lime/20;
+  }
+
+  /* Fix for select options in dark mode */
+  .input-primary option {
+    @apply bg-gray-900 text-white;
+  }
+
+  /* Skeleton Loading */
+  .skeleton {
+    @apply bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-lg;
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Scrollbar Styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-white/5 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-lime/30 rounded-full hover:bg-lime/50;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-lime to-emerald bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(to right, var(--color-lime), var(--color-emerald)) 1;
+  }
+}
